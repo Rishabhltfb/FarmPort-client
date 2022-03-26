@@ -20,9 +20,13 @@ class AuthScreen extends StatefulWidget {
 
 class _AuthScreenState extends State<AuthScreen> {
   ValueNotifier<bool> isFarmer = ValueNotifier(true);
+  ValueNotifier<bool> credFail = ValueNotifier(false);
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  String emailFarmer = 'farmer@farmport.in';
+  String emailConsumer = 'consumer@farmport.in';
+  String password = 'test';
 
   @override
   Widget build(BuildContext context) {
@@ -66,10 +70,32 @@ class _AuthScreenState extends State<AuthScreen> {
                     labelText: 'Password',
                     isPassword: true),
                 spacer,
+                ValueListenableBuilder(
+                    valueListenable: credFail,
+                    builder: (context, value, child) => !credFail.value
+                        ? const SizedBox()
+                        : Text('Oops, email or password is not correct!',
+                            style: kBody2.copyWith(
+                                color: FarmPortColors.kRedColor))),
                 spacer,
                 ElevatedButton(
                     onPressed: () {
                       log('Button pressed');
+                      if (isFarmer.value) {
+                        if (emailController.text.toLowerCase() != emailFarmer ||
+                            passwordController.text.toLowerCase() != password) {
+                          credFail.value = true;
+                          return;
+                        }
+                      } else {
+                        if (emailController.text.toLowerCase() !=
+                                emailConsumer ||
+                            passwordController.text.toLowerCase() != password) {
+                          credFail.value = true;
+                          return;
+                        }
+                      }
+                      credFail.value = false;
                       Navigator.of(context).pushNamed(HomeScreen.route);
                     },
                     style: ButtonStyle(
@@ -86,7 +112,7 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 
   Widget selectSessionTypeRow(BuildContext context) {
-    SizedBox hspacer = SizedBox(width: 12);
+    SizedBox hspacer = const SizedBox(width: 12);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

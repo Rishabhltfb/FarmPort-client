@@ -7,4 +7,5 @@ class FarmPortColors {
   static const kBackgroundColor = Color(0xffFFFAED);
   static const kWhiteColor = Color(0xffFFFFFF);
   static const kGreyColor = Colors.grey;
+  static const kRedColor = Colors.red;
 }
