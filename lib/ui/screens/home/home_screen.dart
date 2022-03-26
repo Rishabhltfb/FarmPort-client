@@ -1,4 +1,5 @@
 import 'package:farmport_app/ui/common/illustration_holder.dart';
+import 'package:farmport_app/ui/screens/crops_upload/crops_upload.dart';
 import 'package:farmport_app/ui/utils/constants/assets.dart';
 import 'package:farmport_app/ui/utils/media_query.dart';
 import 'package:farmport_app/ui/utils/themes/text_theme.dart';
@@ -30,7 +31,8 @@ class HomeScreen extends StatelessWidget {
               width: width * 0.5,
               height: 50,
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () =>
+                    Navigator.of(context).pushNamed(CropsUpload.route),
                 child: const Text('Upload Crop', style: kBody2),
               ),
             ),

@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:farmport_app/ui/common/illustration_holder.dart';
-import 'package:farmport_app/ui/screens/auth/components/auth_field.dart';
+import 'package:farmport_app/ui/common/custom_text_field.dart';
 import 'package:farmport_app/ui/screens/home/home_screen.dart';
 import 'package:farmport_app/ui/utils/constants/assets.dart';
 import 'package:farmport_app/ui/utils/constants/colors.dart';
@@ -52,19 +52,19 @@ class _AuthScreenState extends State<AuthScreen> {
                 spacer,
                 spacer,
                 selectSessionTypeRow(context),
-                AuthField(
+                CustomTextField(
                   textEditingController: nameController,
                   hintText: 'Type your name here',
                   labelText: 'Name',
                 ),
                 spacer,
-                AuthField(
+                CustomTextField(
                   textEditingController: emailController,
                   hintText: 'Type your email here',
                   labelText: 'Email',
                 ),
                 spacer,
-                AuthField(
+                CustomTextField(
                     textEditingController: passwordController,
                     hintText: 'Type your password here',
                     labelText: 'Password',
@@ -81,20 +81,9 @@ class _AuthScreenState extends State<AuthScreen> {
                 ElevatedButton(
                     onPressed: () {
                       log('Button pressed');
-                      if (isFarmer.value) {
-                        if (emailController.text.toLowerCase() != emailFarmer ||
-                            passwordController.text.toLowerCase() != password) {
-                          credFail.value = true;
-                          return;
-                        }
-                      } else {
-                        if (emailController.text.toLowerCase() !=
-                                emailConsumer ||
-                            passwordController.text.toLowerCase() != password) {
-                          credFail.value = true;
-                          return;
-                        }
-                      }
+                      // if (!authenticate()) {
+                      //   return;
+                      // }
                       credFail.value = false;
                       Navigator.of(context).pushNamed(HomeScreen.route);
                     },
@@ -146,5 +135,22 @@ class _AuthScreenState extends State<AuthScreen> {
         ),
       ],
     );
+  }
+
+  bool authenticate() {
+    if (isFarmer.value) {
+      if (emailController.text.toLowerCase() != emailFarmer ||
+          passwordController.text.toLowerCase() != password) {
+        credFail.value = true;
+        return false;
+      }
+    } else {
+      if (emailController.text.toLowerCase() != emailConsumer ||
+          passwordController.text.toLowerCase() != password) {
+        credFail.value = true;
+        return false;
+      }
+    }
+    return true;
   }
 }

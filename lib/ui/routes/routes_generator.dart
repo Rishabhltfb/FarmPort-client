@@ -1,4 +1,5 @@
 import 'package:farmport_app/ui/screens/auth/auth_screen.dart';
+import 'package:farmport_app/ui/screens/crops_upload/crops_upload.dart';
 import 'package:farmport_app/ui/screens/home/home_screen.dart';
 import 'package:farmport_app/ui/screens/onboarding/onboading_screen.dart';
 import 'package:farmport_app/ui/screens/splash/splash_screen.dart';
@@ -22,6 +23,10 @@ class Router {
       case HomeScreen.route:
         return MaterialPageRoute(
           builder: (context) => const HomeScreen(),
+        );
+      case CropsUpload.route:
+        return MaterialPageRoute(
+          builder: (context) => const CropsUpload(),
         );
       default:
         return MaterialPageRoute(

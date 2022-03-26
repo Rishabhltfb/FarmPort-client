@@ -35,6 +35,7 @@ class IllustrationHolder extends StatelessWidget {
           Text(
             text,
             textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
             style: kTitle1.copyWith(
               color: color,
               fontWeight: FontWeight.bold,
