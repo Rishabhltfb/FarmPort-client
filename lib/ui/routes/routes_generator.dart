@@ -1,4 +1,5 @@
 import 'package:farmport_app/ui/screens/auth/auth_screen.dart';
+import 'package:farmport_app/ui/screens/home/home_screen.dart';
 import 'package:farmport_app/ui/screens/onboarding/onboading_screen.dart';
 import 'package:farmport_app/ui/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,10 @@ class Router {
       case AuthScreen.route:
         return MaterialPageRoute(
           builder: (context) => const AuthScreen(),
+        );
+      case HomeScreen.route:
+        return MaterialPageRoute(
+          builder: (context) => const HomeScreen(),
         );
       default:
         return MaterialPageRoute(

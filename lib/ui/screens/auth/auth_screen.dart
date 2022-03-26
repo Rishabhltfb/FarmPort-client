@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:farmport_app/ui/common/illustration_holder.dart';
 import 'package:farmport_app/ui/screens/auth/components/auth_field.dart';
+import 'package:farmport_app/ui/screens/home/home_screen.dart';
 import 'package:farmport_app/ui/utils/constants/assets.dart';
 import 'package:farmport_app/ui/utils/constants/colors.dart';
 import 'package:farmport_app/ui/utils/media_query.dart';
@@ -41,6 +42,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     width: width * 0.7,
                     illustration: FarmPortAssets.authIllustration,
                     text: 'Register User',
+                    color: FarmPortColors.kWhiteColor,
                   ),
                 ),
                 spacer,
@@ -68,6 +70,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 ElevatedButton(
                     onPressed: () {
                       log('Button pressed');
+                      Navigator.of(context).pushNamed(HomeScreen.route);
                     },
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
