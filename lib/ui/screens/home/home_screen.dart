@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 100),
             IllustrationHolder(
-                height: height * 0.35,
+                height: height * 0.4,
                 width: width * 0.6,
                 illustration: FarmPortAssets.farmer,
                 text: 'Welcome Farmer'),

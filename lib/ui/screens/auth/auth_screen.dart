@@ -42,7 +42,7 @@ class _AuthScreenState extends State<AuthScreen> {
               children: [
                 Center(
                   child: IllustrationHolder(
-                    height: height * 0.5,
+                    height: height * 0.52,
                     width: width * 0.7,
                     illustration: FarmPortAssets.authIllustration,
                     text: 'Register User',
