@@ -81,9 +81,9 @@ class _AuthScreenState extends State<AuthScreen> {
                 ElevatedButton(
                     onPressed: () {
                       log('Button pressed');
-                      // if (!authenticate()) {
-                      //   return;
-                      // }
+                      if (!authenticate()) {
+                        return;
+                      }
                       credFail.value = false;
                       Navigator.of(context).pushNamed(HomeScreen.route);
                     },

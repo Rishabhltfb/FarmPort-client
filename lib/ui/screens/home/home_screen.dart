@@ -1,10 +1,10 @@
 import 'package:farmport_app/ui/common/illustration_holder.dart';
 import 'package:farmport_app/ui/screens/crops_upload/crops_upload.dart';
+import 'package:farmport_app/ui/screens/my_crop/my_crop.dart';
 import 'package:farmport_app/ui/utils/constants/assets.dart';
 import 'package:farmport_app/ui/utils/media_query.dart';
 import 'package:farmport_app/ui/utils/themes/text_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String route = '/home';
@@ -41,7 +41,8 @@ class HomeScreen extends StatelessWidget {
               width: width * 0.5,
               height: 50,
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () =>
+                    Navigator.of(context).pushNamed(MyCropScreen.route),
                 child: const Text('View Crop', style: kBody2),
               ),
             )

@@ -35,15 +35,8 @@ class PictureWidget extends StatelessWidget {
       //           )
       //         : const Icon(Icons.camera_alt_outlined, color: Colors.white)),
       decoration: BoxDecoration(
-        color: FarmPortColors.kPrimaryColor,
         // shape: BoxShape.circle,
         image: DecorationImage(image: getImage()),
-        boxShadow: [
-          BoxShadow(
-              blurRadius: 4,
-              offset: const Offset(0, 2),
-              color: FarmPortColors.kBlackColor.withOpacity(0.25))
-        ],
       ),
     );
   }
